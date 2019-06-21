@@ -60,3 +60,7 @@ export const deleteSmurf=e=>dispatch=>{
     dispatch({type:ERROR,payload:err.response.data.error})
   })
 }
+
+export const toUpdate=e=>{
+  return {type:UPDATE_SMURF,payload:e}
+}
