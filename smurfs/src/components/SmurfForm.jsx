@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { clear } from '../actions'
+import { clear, updateSmurf, addSmurf } from '../actions'
 
 class SmurfForm extends Component {
     state = {
@@ -18,6 +18,17 @@ class SmurfForm extends Component {
 
     sub=e=>{
         e.preventDefault()
+        if(this.props.updating){
+            this.props.updateSmurf({
+                name:this.state.name,
+                age:this.state.age,
+                height:this.state.height,
+                id:this.state.id
+            })
+            this.empty()
+        }else{
+            this.props.addSmurf({...this.state})
+        }
     }
 
     empty=e=>{
@@ -30,18 +41,20 @@ class SmurfForm extends Component {
         })
     }
 
-    render() {
-        if(this.props.updating && this.id!=this.props.updating.id){
+    componentDidUpdate=(prev)=>{
+        if(this.props.updating && this.props.updating.id !== this.state.id)
             this.setState({...this.props.updating})
-        }
+    }
+
+    render() {
         return (
             <form onSubmit={this.sub}>
-                {this.props.updating && <h2>Updating: {this.name}</h2>}
+                {this.props.updating && <h2>Updating: {this.state.name}</h2>}
                 <label htmlFor="name">Name: <input type="text" name="name" value={this.state.name} onChange={this.edit}/></label>
                 <label htmlFor="age">Age: <input type="number" name="age" value={this.state.age} onChange={this.edit}/></label>
-                <label htmlFor="height">Height: <input type="number" name="height" value={this.state.height} onChange={this.edit}/></label>
+                <label htmlFor="height">Height: <input type="text" name="height" value={this.state.height} onChange={this.edit}/></label>
                 <button type="submit">Submit</button>
-                <button onClick={this.empty}></button>
+                <button onClick={this.empty}>Clear Form</button>
             </form>
         )
     }
@@ -53,7 +66,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
     clear,
-
+    updateSmurf,
+    addSmurf
 }
 
 

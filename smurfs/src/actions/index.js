@@ -28,37 +28,39 @@ export const getSmurfs=()=>dispatch=>{
   request.then(({data})=>{
     dispatch({type:GET_SMURFS,payload:data})
   }).catch(err=>{
-    dispatch({type:ERROR,payload:err.response.data.error})
+    dispatch({type:ERROR,payload:err.response.statusText})
   })
 }
 
 export const addSmurf=e=>dispatch=>{
   dispatch({type:LOADING})
-  let request=axios.post(ALL)
+  let request=axios.post(ALL,e)
   request.then(({data})=>{
     dispatch({type:GET_SMURFS,payload:data})
   }).catch(err=>{
-    dispatch({type:ERROR,payload:err.response.data.error})
+    dispatch({type:ERROR,payload:err.response.statusText})
   })
 }
 
 export const updateSmurf=e=>dispatch=>{
   dispatch({type:LOADING})
+  console.log(ONE(e.id));
   let request=axios.put(ONE(e.id),e)
   request.then(({data})=>{
     dispatch({type:GET_SMURFS,payload:data})
   }).catch(err=>{
-    dispatch({type:ERROR,payload:err.response.data.error})
+    console.error(err.response);
+    dispatch({type:ERROR,payload:err.response.statusText})
   })
 }
 
 export const deleteSmurf=e=>dispatch=>{
   dispatch({type:LOADING})
-  let request=axios.delete(ONE(e.id))
+  let request=axios.delete(ONE(e))
   request.then(({data})=>{
     dispatch({type:GET_SMURFS,payload:data})
   }).catch(err=>{
-    dispatch({type:ERROR,payload:err.response.data.error})
+    dispatch({type:ERROR,payload:err.response.statusText})
   })
 }
 

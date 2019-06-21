@@ -10,8 +10,8 @@ class Smurf extends Component {
                 <ul>
                     <li className="none">Age: {this.props.age}</li>
                     <li className="none">Height: {this.props.height}</li>
-                    <button onClick={()=>deleteSmurf(this.props.id)}>Delete Smurf</button>
-                    <button onClick={()=>toUpdate({...this.props})}>Update Smurf</button>
+                    <button onClick={()=>this.props.deleteSmurf(this.props.id)}>Delete Smurf</button>
+                    <button onClick={()=>this.props.toUpdate({...this.props})}>Update Smurf</button>
                 </ul>
             </div>
         )
