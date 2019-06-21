@@ -10,6 +10,7 @@ export const UPDATE_SMURF='UPDATE_SMURF'
 export const DELETE_SMURF='DELETE_SMURF'
 export const LOADING='LOADING'
 export const ERROR='ERROR'
+export const CLEAR="CLEAR"
 
 /*
   For this project you'll need at least 2 action creators for the main portion,
@@ -63,4 +64,8 @@ export const deleteSmurf=e=>dispatch=>{
 
 export const toUpdate=e=>{
   return {type:UPDATE_SMURF,payload:e}
+}
+
+export const clear=e=>{
+  return {type:CLEAR}
 }

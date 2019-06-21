@@ -1,7 +1,7 @@
 /*
   Be sure to import in all of the action types from `../actions`
 */
-import { LOADING, GET_SMURFS, UPDATE_SMURF, ERROR } from '../actions'
+import { LOADING, GET_SMURFS, UPDATE_SMURF, ERROR,CLEAR } from '../actions'
 
 /*
  Your initial/default state for this project could *Although does not have to* look a lot like this
@@ -35,9 +35,11 @@ export default (state=init,action)=>{
     case GET_SMURFS:
       return {...state,fetching:false,smurfs:action.payload}
     case UPDATE_SMURF:
-      return {...state,updating:e}
+      return {...state,updating:action.payload}
     case ERROR:
       return{...state,fetching:false,error:action.payload}
+    case CLEAR:
+      return{...state,updating:false}
     default:
       return state;
   }
