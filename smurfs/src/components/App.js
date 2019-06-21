@@ -20,8 +20,10 @@ class App extends Component {
         <div>Have fun!</div>
         {this.props.error && <h2 className="error">Error: {this.props.error}</h2>}
         {this.props.fetching && <h2 className="loading">Loading</h2>}
-        <SmurfList />
-        <SmurfForm/>
+        <section className="formatter">
+          <SmurfList />
+          <SmurfForm/>
+        </section>
       </div>
     );
   }

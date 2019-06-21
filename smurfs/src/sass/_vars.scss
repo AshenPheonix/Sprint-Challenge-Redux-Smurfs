@@ -1,0 +1,9 @@
+@mixin card($color:black,$shadowColor:gray) {
+    border:solid $color 1px;
+    box-shadow: 2px 2px 2px $shadowColor;
+}
+
+@mixin flex($direction:row){
+    display: flex;
+    flex-direction: $direction;
+}

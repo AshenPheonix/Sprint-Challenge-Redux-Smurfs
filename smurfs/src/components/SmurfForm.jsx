@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { clear, updateSmurf, addSmurf } from '../actions'
+import '../sass/Form.css'
 
 class SmurfForm extends Component {
     state = {
@@ -32,6 +33,7 @@ class SmurfForm extends Component {
     }
 
     empty=e=>{
+        e.preventDefault()
         this.props.clear()
         this.setState({
             name:'',

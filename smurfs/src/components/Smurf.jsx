@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { deleteSmurf, toUpdate } from '../actions';
+import '../sass/Smurf.css'
 
 class Smurf extends Component {
     render() {
