@@ -1,0 +1,8 @@
+.SmurfList{
+    display: flex;
+    max-width: 750px;
+    width: 50%;
+    margin:1rem;
+    height: 750px;
+    overflow: scroll;
+}

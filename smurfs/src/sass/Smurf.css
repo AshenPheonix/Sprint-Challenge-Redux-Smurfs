@@ -1,0 +1,13 @@
+.smurfCard{
+    border:solid black 1px;
+    box-shadow: 2px 2px 2px gray;
+    margin:1rem auto;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    padding:1rem;
+    height: 150px;
+}
+.none{
+    list-style-type: none;
+}
